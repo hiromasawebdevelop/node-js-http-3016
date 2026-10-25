@@ -11,23 +11,11 @@ const server = http
 
     switch (req.method) {
       case 'GET':
-        if (req.url === '/enquetes/yaki-tofu') {
-          res.write(
-            pug.renderFile('./form.pug', {
-              path: req.url,
-              firstItem: '焼き肉',
-              secondItem: '湯豆腐'
-            })
-          );
-        } else if (req.url === '/enquetes/rice-bread') {
-          res.write(
-            pug.renderFile('./form.pug', {
-              path: req.url,
-              firstItem: 'ごはん',
-              secondItem: 'パン'
-            })
-          );
-        } else if (req.url === '/enquetes/sushi-pizza') {
+        if (req.url === '/') {
+        res.write(pug.renderFile('./top.pug'));
+        } else if (req.url === '/enquetes') {
+          res.write(pug.renderFile('./enquetes.pug'));
+        } else if (req.url === '/enquetes/yaki-tofu') {
           res.write(
             pug.renderFile('./form.pug', {
               path: req.url,
